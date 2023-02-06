@@ -2,6 +2,7 @@ version: "3.5"
 services:
   brondb:
     container_name: brondb
+    platform: linux/amd64
     image: arangodb:3.8.1
     environment:
       ARANGO_ROOT_PASSWORD_FILE: /run/secrets/arango_root_password
@@ -14,6 +15,7 @@ services:
       - brondb_apps_data_container:/var/lib/arangodb3-apps
   bootstrap:
     container_name: bootstrap
+    platform: linux/amd64
     build: .
     image: bronbootstrap
     working_dir: /usr/local/bron 
